@@ -34,7 +34,7 @@ void dni_Do_Konca_Roku(short int rok, short int miesiac, short int dzien, bool c
 			dni_koniec -= 31;
 		}
 	}
-	cout << "Dni do konca roku: "<<dni_koniec-dzien << endl;	
+	cout << "Dni do konca roku: "<< dni_koniec-dzien << endl;	
 }
 bool czyPrzestempny(int rok)
 {
