@@ -7,7 +7,34 @@ void dni_Do_Konca_Roku(short int rok, short int miesiac, short int dzien, bool c
 {
 	//365 dni rok zwykly
 	int dni_koniec = czyPrzestempny ? 366: 365;
-		
+	for (int i = 1; i < miesiac; i++)
+	{
+		if (czyPrzestempny && i == 2)
+		{
+			dni_koniec -=  29;
+		}
+		else if (!czyPrzestempny && i == 2)
+		{
+			dni_koniec -= 28;
+		}
+		else if (i % 2 == 1 && i <= 7)
+		{
+			dni_koniec -= 31;
+		}
+		else if (i % 2 == 0 && i <= 7)
+		{
+			dni_koniec -= 30;
+		}
+		else if (i % 2 == 1 && i > 7)
+		{
+			dni_koniec -= 30;
+		}
+		else if (i % 2 == 0 && i > 7)
+		{
+			dni_koniec -= 31;
+		}
+	}
+	cout << "Dni do konca roku: "<<dni_koniec-dzien << endl;	
 }
 bool czyPrzestempny(int rok)
 {
@@ -23,8 +50,8 @@ void wymysl_Rok()
 {
 	short int rok_caly[3];
 
-	rok_caly[0] = rand()%5000+ 1582; // od roku 1582 do 5582; ROK
-	rok_caly[1] = rand()%12 + 1; // od 1 do 12; MIESIAC	
+	rok_caly[0] = rand()%5000+ 1582; 			// od roku 1582 do 5582; ROK
+	rok_caly[1] = rand()%12 + 1; 				// od 1 do 12; MIESIAC	
 	bool CzyPrze = czyPrzestempny(rok_caly[0]); // Czy rok przestempny
 	if (CzyPrze && rok_caly[1] == 2)
 	{
@@ -50,14 +77,17 @@ void wymysl_Rok()
 	{
 		rok_caly[2] = rand()%31 + 1;
 	}
-	cout << "Rok:"<<rok_caly[0]<<"-"<<rok_caly[1]<<"-"<<rok_caly[2];
+	cout << "Rok:"<<rok_caly[0]<<"-"<<rok_caly[1]<<"-"<<rok_caly[2]<<endl;
 	dni_Do_Konca_Roku(rok_caly[0],rok_caly[1],rok_caly[2],CzyPrze);
 }
 
 int main()
 {	
 	srand(time(NULL));	
-	wymysl_Rok();cout << endl;
+	for (int i = 0; i < 10; ++i)
+	 {
+	 	wymysl_Rok();
+	 } 
 }
 //######################################
 //	TESTY
