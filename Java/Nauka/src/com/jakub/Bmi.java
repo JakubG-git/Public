@@ -1,11 +1,13 @@
 package com.jakub;
-import java.util.Scanner;
-public class Bmi {
-	private static void calcBmi(float weight, float height)
+public class Bmi 
+{
+	public void calcBmi(float weight, float height)
 	{
-		//underweight <18.5
-		//between - good;
-		//25 >= overweight
+		/*
+		underweight <18.5
+		between - good;
+		25 >= overweight
+		*/
 		 float _bmi;
 		 _bmi = (weight / (height * height));
 		if (_bmi <18.5) 
@@ -22,14 +24,4 @@ public class Bmi {
 		}
 		
 	}
-	public static void main(String[] args) 
-	{		
-		Scanner scan = new Scanner(System.in);  // Create a Scanner object
-	    System.out.println("Podaj swoj¹ wage[kg]:");
-	    float weight = scan.nextFloat();	    
-	    System.out.println("Podaj swój wzrost[m]:");
-	    float height = scan.nextFloat();
-		calcBmi(weight, height);
-	}
-
 }
