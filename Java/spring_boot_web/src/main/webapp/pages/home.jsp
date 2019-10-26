@@ -7,6 +7,6 @@
 <title>Java</title>
 </head>
 <body>
-	Welcome ${name}
+	Welcome ${obj.aid}, ${obj.aname} , ${obj.lang}
 </body>
 </html>
