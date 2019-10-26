@@ -15,16 +15,16 @@ public class AlienController {
 	AlienRepo repo;
 	@RequestMapping(path = "/")
 	public String home() {
-		return "home.jsp";
+		return "home";
 	}
 	@RequestMapping(path ="/addAlien")
 	public String addAlien(Alien alien) {
 		repo.save(alien);
-		return "home.jsp";
+		return "home";
 	}
 	@RequestMapping(path ="/getAlien")
 	public ModelAndView getAlien(@RequestParam int aid) {
-		ModelAndView mView = new ModelAndView("showAlien.jsp");
+		ModelAndView mView = new ModelAndView("showAlien");
 		Alien alien = repo.findById(aid).orElse(new Alien());
 		mView.addObject(alien);
 		return mView;
