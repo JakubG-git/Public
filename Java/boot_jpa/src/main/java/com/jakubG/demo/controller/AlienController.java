@@ -29,5 +29,18 @@ public class AlienController {
 		mView.addObject(alien);
 		return mView;
 	}
+	@RequestMapping(path = "/deleteAlien")
+	public ModelAndView deleteAlien(@RequestParam int aid) {
+		ModelAndView mView = new ModelAndView("home");
+		Alien alien = repo.findById(aid).orElse(new Alien());
+		repo.delete(alien);
+		return mView;
+	}
+	@RequestMapping(path = "/updateAlien")
+	public ModelAndView updateAlien(Alien alien) {
+		ModelAndView mView = new ModelAndView("home");
+		repo.save(alien);
+		return mView;
+	}
 
 }
