@@ -12,11 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 	@RequestMapping(path="/home")
-	public String home(@RequestParam("name") String myName, HttpSession session) {
+	public ModelAndView home(@RequestParam("name") String myName, HttpSession session) {
 		ModelAndView mView = new ModelAndView();
-		System.out.println("hello" + myName);
-		session.setAttribute("name", myName);		
-		return "home";
+	
+		return mView;
 	}
 	
 }
