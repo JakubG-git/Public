@@ -30,7 +30,7 @@
 	
 	
 	
-	<h1>getAlien</h1>
+	<h1>getAlien turned off</h1>
 	<form action="getAlien">
 		<input type ="text" name="aid"><br>
 		<input type ="submit"><br>
